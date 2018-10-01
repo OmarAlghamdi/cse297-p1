@@ -13,7 +13,8 @@ public class LookUp {
 		this.ht = ht;
 		this.b = b;
 		readAndLookup(probe);
-		System.out.println("visited buckets = " +visited);
+		//	System.out.println("visited buckets = " +visited);
+		M.probe.add("visited buckets = " +visited);
 	}
 	private void readAndLookup(String probe) {
 		Scanner sc = null;
@@ -31,7 +32,8 @@ public class LookUp {
 	}
 	private void lookup(String tmp) {
 		if(!Hasher.isa2z(tmp))
-			System.out.println(tmp + "\t\t" + -1 + "\t\t" + 0);
+			//	System.out.println(tmp + "\t\t" + -1 + "\t\t" + 0);
+			M.probe.add(tmp + "\t\t" + -1 + "\t\t" + 0);
 		else {
 			int hash = Hasher.hasha2z(tmp)%b;
 			LinkedList<Bucket> ll = ht[hash];
@@ -40,15 +42,17 @@ public class LookUp {
 				Bucket bucket = (Bucket) iterator.next();
 				visited++;
 				if(bucket.getWord().equals(tmp)) {
-					System.out.println(tmp + "\t\t" + bucket.getPosition() + "\t\t" + bucket.getCount());
+					//	System.out.println(tmp + "\t\t" + bucket.getPosition() + "\t\t" + bucket.getCount());
+					M.probe.add(tmp + "\t\t" + bucket.getPosition() + "\t\t" + bucket.getCount());
 					found = true;
 					break;
 				}
 
 			}
-		
-		if(!found)
-			System.out.println(tmp + "\t\t" + -1 + "\t\t" + 0);
+
+			if(!found)
+				//	System.out.println(tmp + "\t\t" + -1 + "\t\t" + 0);
+				M.probe.add(tmp + "\t\t" + -1 + "\t\t" + 0);
 		}
 	}
 }

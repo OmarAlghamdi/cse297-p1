@@ -27,7 +27,8 @@ public class HashTable {
 				Bucket bucket = (Bucket) iterator.next();
 				if(bucket.getWord().equals(word)) {
 					exist = true;
-					System.out.println("ERROR\t" + word + "\t\t duplicte");
+			//		System.out.println("ERROR\t" + word + "\t\t duplicte");
+					M.build.add("ERROR\t" + word + "\t\t duplicte");
 					bucket.setCount(bucket.getCount()+1);
 					break;
 				}
@@ -39,7 +40,8 @@ public class HashTable {
 		
 		if(!exist) {
 			llB.add(new Bucket(word, position));
-			System.out.println(word + "\t\t" + bLoc);
+		//	System.out.println(word + "\t\t" + bLoc);
+			M.build.add(word + "\t\t" + bLoc);
 		}
 	}
 	public LinkedList<Bucket>[] getBuckets() {

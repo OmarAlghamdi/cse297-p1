@@ -32,7 +32,8 @@ public class DictionaryBuilder {
 			ht.add(tmp, position, Hasher.hasha2z(tmp));
 		}
 		else
-			System.out.println("ERROR\t"+tmp + "\t\t not a lowercase word"); 
+		//	System.out.println("ERROR\t"+tmp + "\t\t not a lowercase word"); 
+			M.build.add("ERROR\t"+tmp + "\t\t not a lowercase word");
 		position = position + tmp.length() + 1;
 	}
 }
