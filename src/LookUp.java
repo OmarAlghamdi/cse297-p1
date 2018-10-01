@@ -6,14 +6,12 @@ import java.util.Scanner;
 
 public class LookUp {
 	LinkedList<Bucket>[]  ht;
-	private File txtFile;
 	int b;
 	int visited = 0;
 	public LookUp(LinkedList<Bucket>[] ht, String probe, int b) {
 		this.ht = ht;
 		this.b = b;
 		readAndLookup(probe);
-		//	System.out.println("visited buckets = " +visited);
 		M.probe.add("visited buckets = " +visited);
 	}
 	private void readAndLookup(String probe) {
@@ -32,7 +30,6 @@ public class LookUp {
 	}
 	private void lookup(String tmp) {
 		if(!Hasher.isa2z(tmp))
-			//	System.out.println(tmp + "\t\t" + -1 + "\t\t" + 0);
 			M.probe.add(tmp + "\t\t" + -1 + "\t\t" + 0);
 		else {
 			int hash = Hasher.hasha2z(tmp)%b;
@@ -42,16 +39,12 @@ public class LookUp {
 				Bucket bucket = (Bucket) iterator.next();
 				visited++;
 				if(bucket.getWord().equals(tmp)) {
-					//	System.out.println(tmp + "\t\t" + bucket.getPosition() + "\t\t" + bucket.getCount());
 					M.probe.add(tmp + "\t\t" + bucket.getPosition() + "\t\t" + bucket.getCount());
 					found = true;
 					break;
 				}
-
 			}
-
 			if(!found)
-				//	System.out.println(tmp + "\t\t" + -1 + "\t\t" + 0);
 				M.probe.add(tmp + "\t\t" + -1 + "\t\t" + 0);
 		}
 	}

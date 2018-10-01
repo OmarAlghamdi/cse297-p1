@@ -30,17 +30,11 @@ public class M {
 	public static void main(String[] args) {
 		int b = Integer.parseInt(args[0]);
 		HashTable ht = new HashTable(b);
-		
-	//	System.out.println();
-	//	System.out.println("================Building=================");
-	//	System.out.println("word\t\t hash");
+
 		build.add("================Build Report=================");
 		build.add("word\t\t hash");
 		DictionaryBuilder fp = new DictionaryBuilder(ht, args[1]);
 		
-	//	System.out.println();
-	//	System.out.println("================Lookup=================");
-	//	System.out.println("word\t\tlocation\t\tcount");
 		probe.add("================Probe Report=================");
 		probe.add("word\t\tlocation\t\tcount");
 		LookUp lu = new LookUp(ht.getBuckets(), args[2], b);
@@ -57,16 +51,7 @@ public class M {
 			tss = tss + Math.pow(bucketSize[i]-avgSize, 2);
 		}
 		hashTable.add("================Hash Table Report=================");
-	//	System.out.println(avgSize);
-	//	System.out.println("sum of squares = " + tss);
 		hashTable.add("sum of squares = " + tss);
-		/*LinkedList<Bucket>[] bc = ht.getBuckets();
-		for (int i = 0; i < bc.length; i++) {
-			for (Iterator iterator = bc[i].iterator(); iterator.hasNext();) {
-				Bucket bucket = (Bucket) iterator.next();
-				System.out.println(bucket.toString() + i);
-			}
-		}*/
 		Scanner in = new Scanner(System.in);
 		while(true) {
 			switch (in.nextLine()) {
